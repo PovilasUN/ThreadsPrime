@@ -32,6 +32,9 @@ int main()
 
     HANDLE hProducer = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)producer, &taskQueue, 0, NULL);
     hConsumers.push_back(CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)consumer, &taskQueue, 0, NULL));
+    hConsumers.push_back(CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)consumer, &taskQueue, 0, NULL));
+    hConsumers.push_back(CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)consumer, &taskQueue, 0, NULL));
+    hConsumers.push_back(CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)consumer, &taskQueue, 0, NULL));
     threadController(&taskQueue, &hConsumers);
 
     WaitForSingleObject(hProducer, INFINITE);
